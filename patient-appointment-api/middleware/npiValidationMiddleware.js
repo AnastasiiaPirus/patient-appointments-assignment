@@ -13,10 +13,11 @@ const validateNPI = async (firstName, lastName, state, npiNumber) => {
     });
 
     const results = response.data.results;
+    const addresses = results[0].addresses;
     return results.length > 0 &&
       results[0].basic.first_name.toLowerCase() === firstName.toLowerCase() &&
       results[0].basic.last_name.toLowerCase() === lastName.toLowerCase() &&
-      results[0].addresses.some(addr => addr.state === state);
+      addresses.some(addr => addr.state === state);
   } catch (error) {
     console.error('NPI Validation Error:', error);
     return false;

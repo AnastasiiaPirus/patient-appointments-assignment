@@ -1,10 +1,8 @@
-import {Appointment} from '../services/api';
-
 interface AppointmentListProps {
-    appointments: Appointment[];
+    appointments: any[];
 }
 
-const AppointmentList = ({appointments}:AppointmentListProps) => {
+const AppointmentList = ({appointments}: AppointmentListProps) => {
     return (
         <div className="flex flex-col gap-4">
             {appointments.map((appointment) => (
@@ -12,8 +10,11 @@ const AppointmentList = ({appointments}:AppointmentListProps) => {
                     key={appointment.id}
                     className="p-4 border rounded-md shadow-sm bg-gray-50"
                 >
-                    <p><strong>Patient:</strong> {appointment.patientName}</p>
-                    <p><strong>Time:</strong> {new Date(appointment.appointmentTime).toLocaleString()}</p>
+                    <p><strong>Patient:</strong> {appointment.Patient.firstName} {appointment.Patient.lastName}</p>
+                    <p><strong>Clinician:</strong> {appointment.Clinician.firstName} {appointment.Clinician.lastName}
+                    </p>
+                    <p><strong>Reason:</strong> {appointment.reason}</p>
+                    <p><strong>Time:</strong> {new Date(appointment.appointmentDate).toLocaleString("US")}</p>
                     <p><strong>Status:</strong> {appointment.status}</p>
                 </div>
             ))}

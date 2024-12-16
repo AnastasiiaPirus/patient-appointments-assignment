@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import {fetchAppointments, Appointment} from '../services/api';
 import AppointmentList from '../components/AppointmentList';
 import TimeFilter from '../components/TimeFilter';
+import AdminPage from "./AdminPage";
 
 const AppointmentsPage = () => {
     const [appointments, setAppointments] = useState<Appointment[]>([]);
@@ -23,8 +24,8 @@ const AppointmentsPage = () => {
             const start = new Date(startDate).getTime();
             const end = new Date(endDate).getTime();
             setFilteredAppointments(
-                appointments.filter(({appointmentTime}) => {
-                    const time = new Date(appointmentTime).getTime();
+                appointments.filter((appointment) => {
+                    const time = new Date(appointment.appointmentDate).getTime();
                     return time >= start && time <= end;
                 })
             );
@@ -33,8 +34,10 @@ const AppointmentsPage = () => {
         }
     }, [startDate, endDate, appointments]);
 
+
     return (
         <div className="p-8">
+            <AdminPage/>
             <h1 className="text-2xl font-bold mb-4">Appointments</h1>
             <TimeFilter
                 startDate={startDate}

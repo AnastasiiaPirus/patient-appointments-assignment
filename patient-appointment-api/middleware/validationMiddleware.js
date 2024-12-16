@@ -2,6 +2,7 @@ const Joi = require('joi');
 
 const validateRequest = (schema) => {
   return (req, res, next) => {
+    console.log('validateRequest');
     const { error } = schema.validate(req.body);
     if (error) {
       return res.status(400).json({
@@ -18,8 +19,7 @@ const clinicianSchema = Joi.object({
   lastName: Joi.string().required(),
   npiNumber: Joi.string().length(10).pattern(/^\d+$/).required(),
   state: Joi.string().length(2).uppercase().required(),
-  specialty: Joi.string(),
-  email: Joi.string().email().required()
+  credential: Joi.string()
 });
 
 const patientSchema = Joi.object({

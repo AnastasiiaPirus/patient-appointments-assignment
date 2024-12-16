@@ -34,18 +34,10 @@ const Clinician = sequelize.define('Clinician', {
     type: DataTypes.STRING(2),
     allowNull: false
   },
-  specialty: {
+  credential: {
     type: DataTypes.STRING,
     allowNull: true
   },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-    validate: {
-      isEmail: true
-    }
-  }
 });
 
 module.exports = Clinician;
