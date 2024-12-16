@@ -2,7 +2,6 @@ import {useEffect, useState} from 'react';
 import {fetchAppointments, } from '../services/api';
 import AppointmentList from '../components/AppointmentList';
 import TimeFilter from '../components/TimeFilter';
-import AdminPage from "./AdminPage";
 
 const AppointmentsPage = () => {
     const [appointments, setAppointments] = useState([]);
@@ -37,7 +36,6 @@ const AppointmentsPage = () => {
 
     return (
         <div className="p-8">
-            <AdminPage/>
             <h1 className="text-2xl font-bold mb-4">Appointments</h1>
             <TimeFilter
                 startDate={startDate}
