@@ -4,13 +4,11 @@ const VITE_API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 export const fetchAppointments = async (): Promise<any[]> => {
     const response = await axios.get(`${VITE_API_BASE_URL}/appointments`);
-    console.log(response);
     return response.data;
 };
 
 export const fetchClinicians = async (): Promise<any[]> => {
     const response = await axios.get(`${VITE_API_BASE_URL}/clinicians`);
-    console.log("clinicians", response);
     return response.data;
 }
 
@@ -26,7 +24,6 @@ export const addClinician = async (npiNumber: any): Promise<any> => {
 
 export const getClinician = async (npiNumber: any): Promise<any> => {
     const clinician = await axios.get(`${VITE_API_BASE_URL}/clinicians/getClinician/${npiNumber}`);
-    console.log(clinician)
     return clinician.data;
 }
 
@@ -42,7 +39,6 @@ export const addPatient = async (patient: any): Promise<any> => {
 
 export const fetchPatients = async (): Promise<any> => {
     const response = await axios.get(`${VITE_API_BASE_URL}/patients`);
-    console.log("patients", response);
     return response.data;
 }
 

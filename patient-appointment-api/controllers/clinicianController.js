@@ -19,7 +19,6 @@ exports.createClinician = async (req, res) => {
       state,
       credential
     });
-    console.log(clinician);
     res.status(201).json(clinician);
   } catch (error) {
     res.status(500).json({
@@ -115,7 +114,6 @@ exports.deleteClinician = async (req, res) => {
 };
 
 exports.getClinicianFromNPIRegistry = async (req, res) => {
-  console.log('getClinicianFromNPIRegistry');
   try {
     const {npiNumber} = req.params;
     const response = await axios.get(process.env.NPI_API_BASE_URL, {
