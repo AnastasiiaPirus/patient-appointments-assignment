@@ -1,16 +1,8 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:3000'; // Replace with your backend URL
-type AppointmentStatus = 'Scheduled'| 'Completed'| 'Cancelled';
-export interface Appointment {
-    id: number;
-    appointmentDate: string;
-    status: AppointmentStatus;
-    reason: string;
-}
+const VITE_API_BASE_URL = 'http://localhost:3000' // import.meta.env.VITE_API_BASE_URL;
 
-export const fetchAppointments = async (): Promise<Appointment[]> => {
-    const response = await axios.get(`${API_BASE_URL}/appointments`);
-    console.log(response);
+export const fetchAppointments = async (): Promise<any[]> => {
+    const response = await axios.get(`${VITE_API_BASE_URL}/appointments`);
     return response.data;
 };

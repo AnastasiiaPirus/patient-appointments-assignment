@@ -1,11 +1,11 @@
 import {useEffect, useState} from 'react';
-import {fetchAppointments, Appointment} from '../services/api';
+import {fetchAppointments, } from '../services/api';
 import AppointmentList from '../components/AppointmentList';
 import TimeFilter from '../components/TimeFilter';
 
 const AppointmentsPage = () => {
-    const [appointments, setAppointments] = useState<Appointment[]>([]);
-    const [filteredAppointments, setFilteredAppointments] = useState<Appointment[]>([]);
+    const [appointments, setAppointments] = useState([]);
+    const [filteredAppointments, setFilteredAppointments] = useState([]);
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
 
@@ -23,8 +23,8 @@ const AppointmentsPage = () => {
             const start = new Date(startDate).getTime();
             const end = new Date(endDate).getTime();
             setFilteredAppointments(
-                appointments.filter(({appointmentTime}) => {
-                    const time = new Date(appointmentTime).getTime();
+                appointments.filter((appointment) => {
+                    const time = new Date(appointment.appointmentDate).getTime();
                     return time >= start && time <= end;
                 })
             );
@@ -32,6 +32,7 @@ const AppointmentsPage = () => {
             setFilteredAppointments(appointments);
         }
     }, [startDate, endDate, appointments]);
+
 
     return (
         <div className="p-8">

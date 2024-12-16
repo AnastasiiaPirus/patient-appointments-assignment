@@ -37,7 +37,7 @@ exports.getAllAppointments = async (req, res) => {
   try {
     const appointments = await Appointment.findAll({
       include: [
-        { model: Clinician, attributes: ['firstName', 'lastName', 'npiNumber'] },
+        { model: Clinician, attributes: ['firstName', 'lastName', 'npiNumber', 'credential'] },
         { model: Patient, attributes: ['firstName', 'lastName'] }
       ],
       attributes: { exclude: ['createdAt', 'updatedAt'] }

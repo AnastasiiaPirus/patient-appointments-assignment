@@ -12,7 +12,7 @@ const TimeFilter = ({
                         setEndDate,
                     }: TimeFilterProps) => {
     return (
-        <div className="flex gap-4">
+        <div className="flex gap-4 mb-4">
             <div>
                 <label className="block text-sm font-medium">Start Date</label>
                 <input
