@@ -11,7 +11,7 @@ const AppointmentList = ({appointments}: AppointmentListProps) => {
                     className="p-4 border rounded-md shadow-sm bg-gray-50"
                 >
                     <p><strong>Patient:</strong> {appointment.Patient.firstName} {appointment.Patient.lastName}</p>
-                    <p><strong>Clinician:</strong> {appointment.Clinician.firstName} {appointment.Clinician.lastName}
+                    <p><strong>Clinician:</strong> {appointment.Clinician.firstName} {appointment.Clinician.lastName}, {appointment.Clinician.credential}
                     </p>
                     <p><strong>Reason:</strong> {appointment.reason}</p>
                     <p><strong>Time:</strong> {new Date(appointment.appointmentDate).toLocaleString("US")}</p>
