@@ -1,12 +1,12 @@
 import {useEffect, useState} from 'react';
-import {fetchAppointments, Appointment} from '../services/api';
+import {fetchAppointments, } from '../services/api';
 import AppointmentList from '../components/AppointmentList';
 import TimeFilter from '../components/TimeFilter';
 import AdminPage from "./AdminPage";
 
 const AppointmentsPage = () => {
-    const [appointments, setAppointments] = useState<Appointment[]>([]);
-    const [filteredAppointments, setFilteredAppointments] = useState<Appointment[]>([]);
+    const [appointments, setAppointments] = useState([]);
+    const [filteredAppointments, setFilteredAppointments] = useState([]);
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
 
