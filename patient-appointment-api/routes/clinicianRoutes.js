@@ -24,6 +24,4 @@ router.put('/:id',
 // Delete Clinician
 router.delete('/:id', clinicianController.deleteClinician);
 
-router.get('/getClinician/:npiNumber', clinicianController.getClinicianFromNPIRegistry);
-
 module.exports = router;
